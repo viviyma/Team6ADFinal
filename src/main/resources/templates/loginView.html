@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<head th:replace="fragments/layout2.html :: html_head"/>
+<body>	
+		<form action ="#" th:action="@{/authenticate}" method="post" th:object="${loginDto}">
+		<div class="sidenav">
+         <div class="login-main-text">
+            <p>Welcome Back!</p>
+            <p>Recycle and get Rewards!!</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form>
+                  <div class="form-group">
+                     <p>LOGIN TO YOUR ACCOUNT</p>
+                    
+                     <fieldset>
+                     <label>User Name</label>
+                     <input type="text" name ="username" th:field="*{username}" class="form-control"placeholder="User Name">
+					 <p style="color: red; font-size: 12px;margin-top: 0px;" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                     <span th:if="${errorMsg != null}" class="error">Wrong user or password</span>
+                     </fieldset>
+                  </div>
+                  <div class="form-group">
+                  <fieldset>
+                  
+                     <label>Password</label>
+                     <input type="password" name="password" th:field="*{password}" class="form-control"placeholder="Password">
+                     <p style="color: red; font-size: 12px; margin-top: 0px;" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                     
+                     </fieldset>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-green">Login</button>
+                  <!--<button type="button" class="btn btn-green">Create a new account</button>-->
+                  <button type="button" class="btn btn-green"><a style="text-decoration: none; color:black" th:href="@{/create}">Create a new account</a></button>
+                  
+                  <div><button type="submit"class="btn btn-green" ><a style="text-decoration: none; color:black" th:href="@{/}">Back</a></button></div>
+               </form>
+            </div>
+         </div>
+      </div>
+	</form>
+	
+	
+	
+</body>
+
+</html>

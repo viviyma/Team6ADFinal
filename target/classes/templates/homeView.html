@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<script th:src="@{https://cdn.jsdelivr.net/npm/chart.js}"></script>
+<head th:replace="fragments/layout.html :: html_head">
+ <script>
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 0, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+</script>      
+</head>
+<body>
+	<div th:replace="fragments/layout.html :: menu"/>
+	<div th:replace="fragments/layout.html :: header"/> 
+	<h1 th:text="Home"/>
+	<h2><span th:utext="${session.profile.user.username}"/></h2>
+		<form action ="#" th:action="@{/home}" method="post">
+		
+	</form>
+	  <canvas id="myChart"></canvas>
+</body>
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+</html>

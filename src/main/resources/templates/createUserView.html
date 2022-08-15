@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout2.html :: html_head"/>
+<body>
+    
+    <!--<div th:replace="fragments/layout.html :: header"/>-->
+    <div th:replace="fragments/layout2.html :: menu"/>
+
+
+
+   <h1>Join to the Clan!!</h1>
+    <form action="#" th:action="@{/saveUser}" th:object = "${user}" method="post">
+<!--        <fieldset>
+            <input type="hidden">
+        </fieldset>-->
+        <fieldset>
+            Name <input type="text" th:field = "*{name}" placeholder = "User Name">
+        </fieldset>
+        <fieldset>
+            Password <input type="text" th:field = "*{password}" placeholder = "Password">
+        </fieldset>
+        <fieldset>
+            Email <input type="text" th:field = "*{email}" placeholder = "Email">
+        </fieldset>
+       <fieldset>
+            Occupation <input type="text" th:field = "*{occupation}" placeholder = "Occupation">
+        </fieldset>
+        
+       <button type="submit" class="btn btn-info col-2">Save User</button>
+
+   </form>
+    <br />
+    <!--<div th:replace="fragments/general.html :: footer"></div>-->
+</body>
+</html>

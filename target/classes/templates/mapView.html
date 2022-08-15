@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout.html :: html_head"/>
+<body>
+	<div th:replace="fragments/layout.html :: menu"/>
+	<div th:replace="fragments/layout.html :: header"/>
+	
+	<h1>We are all over the islands! Find us! Choose the right Us !</h1>
+		<form action ="#" th:action="@{/locate}" method="post">
+		
+	
+	<div>
+	<iframe width="1300" height="800" src="https://data.gov.sg/dataset/e-waste-recycling/resource/95b95773-8c29-4a32-a9e1-461e622bf092/view/30a9e8b2-fd0e-4083-ba87-8aa51a4f0200" frameBorder="0"> </iframe>	
+	</div>
+	</form>
+	
+</body>
+
+</html>

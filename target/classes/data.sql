@@ -1,0 +1,44 @@
+INSERT INTO ADproj.user(name, password, email, occupation) VALUES ("Halim", "halim", "halim@gmail.com", "smut");
+INSERT INTO ADproj.user(name, password, email, occupation) VALUES ("Heily", "heily", "heily@hotmail.com", "Engineer");
+INSERT INTO ADproj.user(name, password, email, occupation) VALUES ("Xingjie", "xingjie", "xingjie@gmail.com", "NEET");
+INSERT INTO ADproj.user(name, password, email, occupation) VALUES ("Yeemon", "yeemon", "yeemon@yahoo.sg", "Student");
+INSERT INTO ADproj.user(name, password, email, occupation) VALUES ("Nyein", "nyein", "bellanyein@gmail.com", "Engineer");
+
+
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'PLASTIC', 1);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-02', 'Added Picture', 10, 'METAL', 2);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'GLASS', 1);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'PLASTIC', 3);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-03', 'Added Picture', 10, 'PLASTIC', 4);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'GLASS', 5);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'PAPER', 2);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'PLASTIC', 3);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'PAPER', 5);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-02', 'Added Picture', 10, 'PLASTIC', 5);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'METAL', 1);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'GLASS', 2);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-04', 'Added Picture', 10, 'PAPER', 4);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-04', 'Added Picture', 10, 'PLASTIC', 1);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-01', 'Added Picture', 10, 'PLASTIC', 3);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-06', 'Added Picture', 10, 'GLASS', 3);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-08', 'Added Picture', 10, 'PLASTIC', 4);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2018-01-13', 'Added Picture', 10, 'GLASS', 4);
+
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-07', 'Added Picture', 10, 'PLASTIC', 1);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-08', 'Added Picture', 10, 'METAL', 2);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-07', 'Added Picture', 10, 'GLASS', 1);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-08', 'Added Picture', 10, 'PLASTIC', 3);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-08', 'Added Picture', 10, 'PLASTIC', 4);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-11', 'Added Picture', 10, 'GLASS', 5);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-12', 'Added Picture', 10, 'PAPER', 2);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-09', 'Added Picture', 10, 'PLASTIC', 3);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-08', 'Added Picture', 10, 'PAPER', 5);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-08', 'Added Picture', 10, 'PLASTIC', 5);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-08', 'Added Picture', 10, 'METAL', 1);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-07', 'Added Picture', 10, 'GLASS', 2);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-08', 'Added Picture', 10, 'PAPER', 4);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-09', 'Added Picture', 10, 'PLASTIC', 1);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-09', 'Added Picture', 10, 'PLASTIC', 3);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-09', 'Added Picture', 10, 'GLASS', 3);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-09', 'Added Picture', 10, 'PLASTIC', 4);
+INSERT INTO ADproj.activity (date_time, description, points, trash_type, user_id) VALUES('2022-08-09', 'Added Picture', 10, 'GLASS', 4);

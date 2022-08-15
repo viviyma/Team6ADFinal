@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "116914ab-7f58-41d0-b4ea-2724befe54cb",
+		"name": "Android",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/createuser?username=test&password=es",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"createuser"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "test"
+						},
+						{
+							"key": "password",
+							"value": "es"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Authentication - Pass",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/login?username=Halim&password=halim",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Halim"
+						},
+						{
+							"key": "password",
+							"value": "halim"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Authentication - Fail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/login?username=penis&password=halim",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "penis"
+						},
+						{
+							"key": "password",
+							"value": "halim"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Statistics",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/alluserstats?username=Heily",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"alluserstats"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Heily"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Daily User Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/dailyuserstats?username=Halim",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"dailyuserstats"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Halim"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Weekly User Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/weeklyuserstats?username=Halim",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"weeklyuserstats"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Halim"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Activity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"test\",\n    \"points\": 10,\n    \"trashType\": \"METAL\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/createactivity?username=Halim",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"createactivity"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Halim"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifying User Details",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/test/change/occupation?input=sexdoll",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"change",
+						"occupation"
+					],
+					"query": [
+						{
+							"key": "input",
+							"value": "sexdoll"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

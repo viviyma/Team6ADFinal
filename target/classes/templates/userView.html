@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head th:replace="fragments/layout.html :: html_head"/>
+<body>
+	<header th:insert="fragments/layout.html :: header"> </header>
+	<div th:replace="fragments/layout.html :: menu"></div>
+	<div>
+            <form method="post">
+             <!--       <div class="user-profile">
+                        <div class="profile-img">
+                                   <img th:src="@{/assets/img/ourplanet.jpg}"/>
+                        </div>
+                    </div>
+                    
+                
+               -->
+                
+                    <div class="user-profile">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                        <h1 >User Profile<br></h1>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:utext="${session.profile.user.username}"/></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Points</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>120</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>kshitighelani@gmail.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Web Developer and Designer</p>
+                                            </div>
+                                        </div>                       
+                        </div>
+                    </div>
+            </form>           
+        </div>
+   
+		
+
+	
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout.html :: html_head"/>
+<body>
+    <div th:replace="fragments/layout.html :: menu"/>
+    <div th:replace="fragments/layout.html :: header"/>
+    
+    <div class="container">
+        <div class="row news-table">
+            <table style="width:100%;">
+                <thead class="news-table-header">
+                    <tr style="background:  rgba(152,181,255,0.57);">
+                        <th>Headline</th>
+                        <th>Link to News</th>
+                    </tr>
+                </thead>
+                <tbody class="news-table-body">
+                    <tr th:each="today:${newsList}">
+                        <td><span th:text="${today.title}"></span></td>
+                        <td><a th:href="${today.url}" target="_blank">Click here</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</body>
+
+
+
+</html>
