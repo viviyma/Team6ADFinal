@@ -33,7 +33,7 @@
 	<div th:replace="fragments/layout.html :: menu"/>
 	<div th:replace="fragments/layout.html :: header"/> 
 	<h1 th:text="Home"/>
-	<h2><span th:utext="${session.profile.user.username}"/></h2>
+	<h2><span th:utext="${session.profile.name}"/></h2>
 		<form action ="#" th:action="@{/home}" method="post">
 		
 	</form>

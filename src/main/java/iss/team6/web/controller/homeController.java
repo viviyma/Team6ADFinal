@@ -7,7 +7,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import iss.team6.web.models.LoginDTO;
 import iss.team6.web.models.NewsDTO;
+import iss.team6.web.models.User;
 import iss.team6.web.services.ScraperService;
 import iss.team6.web.services.UserService;
 
@@ -34,54 +34,42 @@ public class homeController {
 	@RequestMapping("/home")
 	public String home(Model model) {
 		//model.addAttribute("name","Home Page");
-		
-		
-	return "homeView";
+		return "homeView";
 	}
 	
 	@RequestMapping("/about")
 	public String about(Model model) {
 		//model.addAttribute("name","Home Page");
-		
-		
-	return "about";
+		return "about";
 	}
 	
 	@RequestMapping("/locate")
 	public String locatebin(Model model) {
 		//model.addAttribute("name","Home Page");
-		
-		
-	return "mapView";
-		
+		return "mapView";
 	}
+	
 	@RequestMapping("/profile")
 	public String profile(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult
-			  results, Model model,HttpSession session) {
-					//System.out.println(session.getAttribute("profile").toString()); 
-					System.out.println(uService.findUserByUserName("yeemon").toString()); 
-					
-					/*
-					 * //model.addAttribute("userprofile",
-					 * uService.findUserByUserName(loginDto.getUsername())); //
-					 * System.out.print(uService.findUserByUserName(loginDto.getUsername()).getEmail
-					 * ());
-					 */
-		
-	return "userView";
+		results, Model model,HttpSession session) {
+		User u = (User) session.getAttribute("profile");
+		model.addAttribute("username", u.getName());
+		model.addAttribute("points", uService.getUserStatistics(u).getPoints());
+		model.addAttribute("email", "");
+		return "userView";
 	}
 	
 	@RequestMapping("/trashify")
 	public String trashify(Model model) {
-		
-		
-	return "trashifyView";
+		return "trashifyView";
 	}
 	
 	@PostMapping("/getImage")
-    public String saveProduct(@RequestParam("file") MultipartFile file, Model model)
-    {
-    	//productService.saveProductToDB(file, name, desc, price);
+    public String saveProduct(@RequestParam("file") MultipartFile file, Model model) {
+		//TODO send to ml
+		//ml send back name
+		//createactivity(), add points
+		//return to view
     	return "trashifyView";
     }
 	
