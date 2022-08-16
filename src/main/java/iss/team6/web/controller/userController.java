@@ -1,40 +1,40 @@
 
- package iss.team6.web.controller;
+//  package iss.team6.web.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.stereotype.Controller;
+// import org.springframework.ui.Model;
+// import org.springframework.web.bind.annotation.ModelAttribute;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RequestMapping;
 
-import iss.team6.web.models.User;
-import iss.team6.web.services.UserService;
+// import iss.team6.web.models.User;
+// import iss.team6.web.services.UserService;
 
   
-  @Controller
-  @RequestMapping("/") 
-  public class userController {
+//   @Controller
+//   @RequestMapping("/") 
+//   public class userController {
 	  
-	  @Autowired
-	  UserService uservice;
+// 	  @Autowired
+// 	  UserService uservice;
   
-	  @RequestMapping(value = "/create")
-		public String createUser(Model model) {
+// 	  @RequestMapping(value = "/create")
+// 		public String createUser(Model model) {
 		  
-		        model.addAttribute("user", new User());
+// 		        model.addAttribute("user", new User());
 		     
-			return "createUserView";
-		}
+// 			return "createUserView";
+// 		}
 	  
 		
-	 @PostMapping(value="/saveUser") 
-	 public String saveEmployee(@ModelAttribute("user") User user) {
+// 	 @PostMapping(value="/saveUser") 
+// 	 public String saveEmployee(@ModelAttribute("user") User user) {
 		  
-		  uservice.createUser(user);
+// 		  uservice.createUser(user);
 		  
-		  return "redirect:/"; 
-		  }
+// 		  return "redirect:/"; 
+// 		  }
 	
-  }
+//   }
  

@@ -24,9 +24,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import iss.team6.web.MLUtils.trashutil;
+import iss.team6.web.helpers.TrashType;
+import iss.team6.web.models.Activity;
 import iss.team6.web.models.LoginDTO;
 import iss.team6.web.models.NewsDTO;
 import iss.team6.web.models.User;
+import iss.team6.web.services.ActivityService;
 import iss.team6.web.services.ScraperService;
 import iss.team6.web.services.UserService;
 
@@ -39,6 +42,9 @@ public class CommonController {
 	
 	@Autowired
     ScraperService sService;
+
+    @Autowired
+    ActivityService aService;
 
     @RequestMapping
 	public String Default(Model model) {		
@@ -79,31 +85,43 @@ public class CommonController {
 	}
 	
 	@PostMapping("/getImage")
-    public String saveProduct(@RequestParam("myfile") MultipartFile inputFile, Model model) throws IOException {
-		//Importing trashUtils 
-        trashutil trash = new trashutil();
+    public String saveProduct(HttpSession session, @RequestParam("myfile") MultipartFile inputFile, Model model) throws IOException {
+		if (session.getAttribute("profile")!=null) {
+            //Importing trashUtils 
+            trashutil trash = new trashutil();
 
-		//Getting the filename extension from 'MultiPartFile'
-		String inputFileExtension = FileNameUtils.getExtension(inputFile.getOriginalFilename());
+            //Getting the filename extension from 'MultiPartFile'
+            String inputFileExtension = FileNameUtils.getExtension(inputFile.getOriginalFilename());
 
-		//Creating blank 'File' inside 'resources' folder
-		File penisfile = new File("src/main/resources/targetFile."+inputFileExtension);
+            //Creating blank 'File' inside 'resources' folder
+            File penisfile = new File("src/main/resources/targetFile."+inputFileExtension);
 
-		//writes 'MultiPartFile' to 'File'
-		try (OutputStream os = new FileOutputStream(penisfile)) {
-			os.write(inputFile.getBytes());
-		}
+            //writes 'MultiPartFile' to 'File'
+            try (OutputStream os = new FileOutputStream(penisfile)) {
+                os.write(inputFile.getBytes());
+            }
 
-		//Streams 'File' into trashUtils.predict
-        try {
-            InputStream inputStream = new FileInputStream(penisfile);
-            String fileType = (String) trash.predict(inputStream);
-			System.out.println(fileType);
-        } catch (Exception e) {
-            e.printStackTrace();
+            //Streams 'File' into trashUtils.predict
+            try {
+                InputStream inputStream = new FileInputStream(penisfile);
+                String fileType = (String) trash.predict(inputStream);
+                if (fileType!=null) {
+                    System.out.println(fileType); //For debugging
+                    Activity activity = new Activity("Added new "+fileType+" picture", 20, 
+                                                        internalConvert(fileType),
+                                                        (User) session.getAttribute("profile"));
+                    aService.createActivity(activity);
+                    System.out.println(fileType+" penis is long"); //For debugging
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return "trashifyView";
         }
 
-    	return "trashifyView";
+        return "loginView";
+        
     }
 	
    @RequestMapping("/news")
@@ -152,5 +170,33 @@ public class CommonController {
 		uService.createUser(user);
 		return "redirect:/"; 
 	}
+
+    private TrashType internalConvert(String fileType) {
+        TrashType trashType;
+        switch (fileType) {
+            case "paper":
+                trashType = TrashType.PAPER;
+                break;
+            case "metal":
+                trashType = TrashType.METAL;
+                break;
+            case "plastic":
+                trashType = TrashType.PLASTIC;
+                break;
+            case "glass":
+                trashType = TrashType.GLASS;
+                break;
+            case "cardboard":
+                trashType = TrashType.PAPER;
+                break;
+            case "trash":
+                trashType = TrashType.PAPER;
+                break;
+            default:
+                trashType = null;
+                break;
+        }
+        return trashType;
+    }
 	 
 }
