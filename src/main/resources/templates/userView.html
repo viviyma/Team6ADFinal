@@ -27,7 +27,7 @@
                                                 <label>User Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><span th:utext="${session.profile.user.username}"/></p>
+                                                <p><span th:utext="${username}"></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -35,7 +35,7 @@
                                                 <label>Points</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>120</p>
+                                                <p><span th:utext="${points}"></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -43,7 +43,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
+                                                <p><span th:utext="${email}"></p>
                                             </div>
                                         </div>
                                         <div class="row">
