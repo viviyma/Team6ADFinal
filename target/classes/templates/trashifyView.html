@@ -4,41 +4,34 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <head th:replace="fragments/layout.html :: html_head"/>
-<body>
-	<header th:insert="fragments/layout.html :: header"> </header>
-	<div th:replace="fragments/layout.html :: menu"></div>
-	<div  style="text-align: center;">
-				<h1 >Classify your waste!<br></h1>
-			</div>
-	
-            <form action ="#" th:action="@{/getImage}" method="post">
-            
-        <!--  <div class="container emp-profile">
-                    <div class="col-md-4">
-                        <div class="profile-img" style="justify-content: center">
-                            <center><img th:src="@{/assets/img/happy.jpg}"/>
-                            <div class="file btn btn-lg btn-primary">
-                                Attached Picture Here 
-                                <input type="file" name="file" accept="image/*"/>
-                               
-                            </div></center>
-                           <center> <div> <button type="submit">Classify</button> </div></center>
+    <body>
+        <header th:insert="fragments/layout.html :: header"> </header>
+        <div th:replace="fragments/layout.html :: menu"></div>
+        <div  style="text-align: center;">
+            <h1 >Classify your waste!<br></h1>
+        </div>
+        <form action ="#" th:action="@{/getImage}" method="post" enctype="multipart/form-data">
+             <!-- <div class="container emp-profile">
+                        <div class="col-md-4">
+                            <div class="profile-img" style="justify-content: center">
+                                <center><img th:src="@{/assets/img/happy.jpg}"/>
+                                <div class="file btn btn-lg btn-primary">
+                                    Attached Picture Here 
+                                    <input type="file" name="file" accept="image/*"/>
+                                
+                                </div></center>
+                            <center> <div> <button type="submit">Classify</button> </div></center>
+                            </div>
                         </div>
-                    </div>
-       		</div>-->
-       		
-			<div style="text-align:center">
-      				<div class="file-uploader">
-
-            <!-- only accepts images for uploading -->
-            	<input type="file" name="myfile" accept="image/*">
-            	<input type="submit">
-            	
-            	
-
-    </div>
-    </div>
-            </form>           
-        	
-</body>
+                </div> -->
+            <div style="text-align:center file btn btn-lg btn-primary">
+                <div class="file-uploader">
+                <!-- only accepts images for uploading -->
+                    <input type="file" name="myfile" accept="image/*">
+                    <input type="submit" value="Upload">
+                </div>
+            </div>
+        </form>                 	
+    </body>
 </html>
+
