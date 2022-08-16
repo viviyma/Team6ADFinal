@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import iss.team6.web.helpers.userSession;
 import iss.team6.web.models.LoginDTO;
 import iss.team6.web.models.NewsDTO;
 import iss.team6.web.models.User;
@@ -32,9 +33,12 @@ public class homeController {
     ScraperService sService;
 
 	@RequestMapping("/home")
-	public String home(Model model) {
-		//model.addAttribute("name","Home Page");
-		return "homeView";
+	public String chartPage(Model model, HttpSession session) {
+		userSession user= (userSession) session.getAttribute("profile");
+		String username=user.getUser().getUsername();
+		model.addAttribute("username", username);
+		
+	return "homeView";
 	}
 	
 	@RequestMapping("/about")

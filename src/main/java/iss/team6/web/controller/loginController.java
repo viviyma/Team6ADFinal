@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import iss.team6.web.helpers.userSession;
 import iss.team6.web.models.LoginDTO;
 import iss.team6.web.services.UserService;
 
@@ -35,18 +36,19 @@ public class loginController {
 	}
 
 	@RequestMapping(value = "/authenticate") 
-	public String login(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult results, Model model,HttpSession session) { 
-		if (results.hasErrors()) {
-			model.addAttribute("errorMsg", "Wrong credentials!!"); 
-			return "loginView"; 
-		}
-	
-		else if (uService.authenticate(loginDto.getUsername(), loginDto.getPassword())){ 
-			session.setAttribute("profile", uService.findUserByUserName(loginDto.getUsername()));
-			return "homeView"; 
-		}
-		return "loginView";
-	}
+	  public String login(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult
+	  results, Model model,HttpSession session) { 
+		  if(results.hasErrors()) {
+	  
+			  model.addAttribute("errorMsg", "Wrong credential!!"); return "loginView"; }
+	  
+		  else if (uService.authenticate(loginDto.getUsername(),
+				  loginDto.getPassword())){ userSession u = new userSession(loginDto);
+				  session.setAttribute("profile", u ); 
+				  return "redirect:/home"; }
+	  
+		  return "forward:/home";
+	 }
 	 
 	
 	@RequestMapping("/logout")
