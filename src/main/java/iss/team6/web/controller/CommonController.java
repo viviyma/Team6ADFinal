@@ -52,8 +52,9 @@ public class CommonController {
 	}
 
 	@RequestMapping("/home")
-	public String home(Model model) {
-		//model.addAttribute("name","Home Page");
+	public String home(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("profile");
+		model.addAttribute("username", user.getName());
 		return "homeView";
 	}
 	
@@ -69,15 +70,18 @@ public class CommonController {
 		return "mapView";
 	}
 	
-	@RequestMapping("/profile")
-	public String profile(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult
-		results, Model model,HttpSession session) {
-		User u = (User) session.getAttribute("profile");
-		model.addAttribute("username", u.getName());
-		model.addAttribute("points", uService.getUserStatistics(u).getPoints());
-		model.addAttribute("email", "");
-		return "userView";
-	}
+    @RequestMapping("/profile")
+
+    public String profile(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult results, Model model,HttpSession session) {
+        User u = (User) session.getAttribute("profile");
+
+        model.addAttribute("username", u.getName());
+        model.addAttribute("points", uService.getUserStatistics(u).getPoints());
+        model.addAttribute("email", u.getEmail());
+        model.addAttribute("occupation", u.getOccupation());
+        
+        return "userView";
+    }
 	
 	@RequestMapping("/trashify")
 	public String trashify(Model model) {
@@ -119,10 +123,21 @@ public class CommonController {
             }
             return "trashifyView";
         }
-
         return "loginView";
-        
     }
+	
+    @RequestMapping("/rewards")
+	public String rewards(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult results, Model model,HttpSession session) {
+		User u = (User) session.getAttribute("profile");
+		
+		model.addAttribute("points", uService.getUserStatistics(u).getPoints());
+		model.addAttribute("glass", uService.getUserStatistics(u).getGlassTypeCount());
+		model.addAttribute("plastic", uService.getUserStatistics(u).getPlasticTypeCount());
+		model.addAttribute("paper", uService.getUserStatistics(u).getPaperTypeCount());
+		model.addAttribute("metal", uService.getUserStatistics(u).getMetalTypeCount());
+			
+		return "rewardsView";
+	}
 	
    @RequestMapping("/news")
     public String news(Model model) {    
@@ -133,7 +148,6 @@ public class CommonController {
 	
 	@GetMapping(value = "/login") 
 	public String loginView(Model model) {
-
 		model.addAttribute("loginDto", new LoginDTO());
 		return "loginView";
 	}
@@ -147,7 +161,7 @@ public class CommonController {
 	
 		else if (uService.authenticate(loginDto.getUsername(), loginDto.getPassword())){ 
 			session.setAttribute("profile", uService.findUserByUserName(loginDto.getUsername()));
-			return "homeView"; 
+			return "redirect:/home"; 
 		}
 		return "loginView";
 	}
@@ -163,7 +177,6 @@ public class CommonController {
 		model.addAttribute("user", new User());
 		return "createUserView";
 	}
-
 
 	@PostMapping(value="/saveUser") 
 	public String saveEmployee(@ModelAttribute("user") User user) {
