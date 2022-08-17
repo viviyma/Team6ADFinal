@@ -34,9 +34,10 @@ public class homeController {
 
 	@RequestMapping("/home")
 	public String chartPage(Model model, HttpSession session) {
-		userSession user= (userSession) session.getAttribute("profile");
+		userSession user= (userSession) session.getAttribute("barchart");
 		String username=user.getUser().getUsername();
 		model.addAttribute("username", username);
+		
 		
 	return "homeView";
 	}
@@ -54,20 +55,46 @@ public class homeController {
 	}
 	
 	@RequestMapping("/profile")
-	public String profile(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult
-		results, Model model,HttpSession session) {
-		User u = (User) session.getAttribute("profile");
-		model.addAttribute("username", u.getName());
-		model.addAttribute("points", uService.getUserStatistics(u).getPoints());
-		model.addAttribute("email", "");
-		return "userView";
-	}
+
+    public String profile(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult
+
+        results, Model model,HttpSession session) {
+
+        User u = (User) session.getAttribute("profile");
+
+        //System.out.println(uService.findUserByUserName("Yeemon").getName());
+
+        model.addAttribute("username", u.getName());
+
+        model.addAttribute("points", uService.getUserStatistics(u).getPoints());
+
+        model.addAttribute("email", u.getEmail());
+        
+        model.addAttribute("occupation", u.getOccupation());
+        
+        return "userView";
+
+    }
 	
 	@RequestMapping("/trashify")
 	public String trashify(Model model) {
 		return "trashifyView";
 	}
-	
+	@RequestMapping("/rewards")
+	public String rewards(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult
+
+	        results, Model model,HttpSession session) {
+		
+		User u = (User) session.getAttribute("profile");
+		
+		model.addAttribute("points", uService.getUserStatistics(u).getPoints());
+		model.addAttribute("glass", uService.getUserStatistics(u).getGlassTypeCount());
+		model.addAttribute("plastic", uService.getUserStatistics(u).getPlasticTypeCount());
+		model.addAttribute("paper", uService.getUserStatistics(u).getPaperTypeCount());
+		model.addAttribute("metal", uService.getUserStatistics(u).getMetalTypeCount());
+			
+		return "rewardsView";
+	}
 	@PostMapping("/getImage")
     public String saveProduct(@RequestParam("file") MultipartFile file, Model model) {
 		//TODO send to ml

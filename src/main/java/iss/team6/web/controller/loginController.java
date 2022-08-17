@@ -43,8 +43,10 @@ public class loginController {
 			  model.addAttribute("errorMsg", "Wrong credential!!"); return "loginView"; }
 	  
 		  else if (uService.authenticate(loginDto.getUsername(),
-				  loginDto.getPassword())){ userSession u = new userSession(loginDto);
-				  session.setAttribute("profile", u ); 
+				  loginDto.getPassword())){ 
+			  	  userSession u = new userSession(loginDto);
+				  session.setAttribute("barchart", u ); 
+				  session.setAttribute("profile", uService.findUserByUserName(loginDto.getUsername()));
 				  return "redirect:/home"; }
 	  
 		  return "forward:/home";
