@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout.html :: html_head"/>
+<body>
+    <div th:replace="fragments/layout.html :: menu"/>
+    <div th:replace="fragments/layout.html :: header"/>
+    <div th:switch="${result}">
+    	<div></div>
+    	<center><p th:case="metal"><img th:src="@{/assets/img/metalBin.jpg}"/>The trash type is metal. Please recycle in metal bin.</p></center>
+    	<p th:case="plastic"><img th:src="@{/assets/img/plasticBin.jpg}"/> trash type is plastic. Please recycle in plastic bin.</p>
+    	<p th:case="cardboard"><img th:src="@{/assets/img/paperBin.jpg}"/>The trash type is paper. Please recycle in paper bin.</p>
+    	<p th:case="glass"><img th:src="@{/assets/img/glassBin.jpg}"/>The trash type is glass. Please recycle in glass bin.</p>
+    </div>
+    
+    
+</body>
+
+
+
+</html>

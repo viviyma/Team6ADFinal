@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<head>
+<link rel="stylesheet" href="simple.css">
+<head th:replace="fragments/layout.html :: html_head"/>
+<body>
+	<header th:insert="fragments/layout.html :: header"> </header>
+	<div th:replace="fragments/layout.html :: menu"></div>
+	<div><form method="post">
+                   
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p>Points of</p>
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><span th:utext="${points}"></p>
+                                            </div>
+                                        </div>
+                       
+                        </div>
+                        <div>
+                        <p id="glass"> 
+                        <span th:utext="${glass}"/>/100 Items of Glass Recycle</p>
+					   
+						<button type = "button" >
+						<a th:if="${glass}==100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-25-off-mushroom-swiss-omlette-platter-turkey-bacon-croissanwich-with-egg-fish-croissanwich-iced-milo-s-2-brewed-coffees/">Redeem vouchers (Glass)</a>
+						<a th:if="${glass}<100" style="text-decoration: none; color :rgb(255, 255, 255)" href="#">Cannot Redeem vouchers (Glass)</a>
+						
+						</button>
+                        </div>
+                        <p id="plastic"> 
+                        <span th:utext="${plastic}"/>/100 Items of Plastic Recycle</p>
+						
+						<button type = "button" >
+						<a th:if="${plastic}==100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-30-off-turkey-bacon-croissanwich-with-egg-turkey-ham-cheese-omlette-platter-iced-milo-s-brewed-coffee/">Redeem vouchers (Plastic)</a>
+                        <a th:if="${plastic}<100" style="text-decoration: none; color :rgb(255, 255, 255)" href="#">Cannot Redeem vouchers (Plastic)</a>
+                        
+						</button>
+                        </div>
+                        
+                        <div>
+                        <p id="paper"> 
+                        <span th:utext="${paper}"/>/100 Items of Paper Recycle</p>
+						
+						<button type = "button" >
+						<a th:if="${paper}==100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-23-off-chicken-sausage-turkey-ham-turkey-bacon-croissanwich/">Redeem vouchers (Paper)</a>
+                        <a th:if="${paper}<100" style="text-decoration: none; color :rgb(255, 255, 255)" href="#">Cannot Redeem vouchers (Paper)</a>
+						</button>
+                        </div>
+                        
+                         <div>
+                        <p id="metal"> 
+                        <span th:utext="${metal}"/>/100 Items of Metal Recycle</p>
+						
+						<button type = "button" >
+						<a th:if="${metal}==100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-29-off-chicken-croissanwich-with-iced-milos/">Redeem vouchers (Metal)</a>
+                        <a th:if="${metal}<100" style="text-decoration: none; color :rgb(255, 255, 255)" href="#">Cannot Redeem vouchers (Metal)</a>
+						</button>
+                        </div>
+             
+            </form>           
+  
+</body>
+</html>
