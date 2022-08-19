@@ -111,6 +111,7 @@ public class CommonController {
                 String fileType = (String) trash.predict(inputStream);
                 if (fileType!=null) {
                     System.out.println(fileType); //For debugging
+                    model.addAttribute("result",fileType);
                     Activity activity = new Activity("Added new "+fileType+" picture", 20, 
                                                         internalConvert(fileType),
                                                         (User) session.getAttribute("profile"));
@@ -121,7 +122,9 @@ public class CommonController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return "trashifyView";
+            
+           
+            return "result";
         }
         return "loginView";
     }
