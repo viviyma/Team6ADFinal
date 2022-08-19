@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/layout.html :: html_head"/>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <style>
+        p {text-align: center;}
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
 <body>
     <div th:replace="fragments/layout.html :: menu"/>
     <div th:replace="fragments/layout.html :: header"/>
     <div th:switch="${result}">
-    	<div></div>
-    	<center><p th:case="metal"><img th:src="@{/assets/img/metalBin.jpg}"/>The trash type is metal. Please recycle in metal bin.</p></center>
-    	<p th:case="plastic"><img th:src="@{/assets/img/plasticBin.jpg}"/> trash type is plastic. Please recycle in plastic bin.</p>
-    	<p th:case="cardboard"><img th:src="@{/assets/img/paperBin.jpg}"/>The trash type is paper. Please recycle in paper bin.</p>
-    	<p th:case="glass"><img th:src="@{/assets/img/glassBin.jpg}"/>The trash type is glass. Please recycle in glass bin.</p>
+        <div th:case="metal">
+		    <img th:src="@{/assets/img/metalBin.jpg}"/>       
+			<p >The trash type is <strong style="color: red;">metal!!</strong > Please recycle in metal bin.</p >
+        </div>
+        <div th:case="cardboard">
+            <img th:src="@{/assets/img/paperBin.jpg}"/>
+            <p>The trash type is <strong style="color: blue;">paper!!</strong> Please recycle in paper bin.</p>
+        </div>
+        <div th:case="plastic">
+            <img th:src="@{/assets/img/plasticBin.jpg}"/>
+            <p>The trash type is <strong style="color: orange;">plastic!!</strong > Please recycle in plastic bin.</p>
+        </div>
+        <div th:case="glass">
+            <img th:src="@{/assets/img/glassBin.jpg}"/>
+            <p>The trash type is <strong style="color: green;">glass!!</strong > Please recycle in glass bin.</p>
+        </div>
     </div>
     
     
 </body>
+
+
 
 
 

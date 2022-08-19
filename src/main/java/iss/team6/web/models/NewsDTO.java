@@ -6,4 +6,5 @@ import lombok.Data;
 public class NewsDTO {
     String title;
     String url;
+    String description;
 }

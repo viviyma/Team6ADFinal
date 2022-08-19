@@ -28,31 +28,14 @@ public class ScraperServiceImpl implements ScraperService{
             //Elements elements_title = document.getElementsByClass("mCBkyc y355M ynAwRc MBeuO nDgy9d");
             Elements elements_link = document.getElementsByClass("WlydOe");
          
-        //Element element = document.getElementById("hits");
-        
-        //Elements elements = element.getElementsByTag("a");
-            //Element element = document.getElementById("content");
-            //getting all the <a> tag elements inside the content div tag
-            //Elements elements = element.getElementsByTag("a");
-           //traversing through the elements
-            /*for (Element ads: elements) {
-                ResponseDTO responseDTO = new ResponseDTO();
-
-
-
-           
-                    //mapping data to the model class
-                    responseDTO.setTitle(ads.attr("title"));
-                    responseDTO.setUrl(ads.attr("href"));
-                    responseDTOS.add(responseDTO);*/
-                
-        for (Element ele: elements_link) {
-        	NewsDTO responseDTO = new NewsDTO();
-            responseDTO.setTitle(ele.getElementsByTag("a").text());
-            responseDTO.setUrl(ele.attr("href"));
-            //responseDTO.setUrl(ads.attr("href"));
-            responseDTOS.add(responseDTO);
-        }
+       
+            for (Element ele: elements_link) {
+                NewsDTO responseDTO = new NewsDTO();
+                responseDTO.setTitle(ele.getElementsByClass("mCBkyc y355M ynAwRc MBeuO nDgy9d").text());
+                responseDTO.setDescription(ele.getElementsByClass("GI74Re nDgy9d").text());
+                responseDTO.setUrl(ele.attr("href"));
+                responseDTOS.add(responseDTO);
+            }
         
         /*for (int i=0; i<responseDTOS.size(); i++) {
             ResponseDTOS(responseDTO)
