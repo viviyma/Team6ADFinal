@@ -7,7 +7,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import iss.team6.web.helpers.TrashType;
 import iss.team6.web.helpers.UserStatistics;
@@ -18,7 +17,7 @@ import iss.team6.web.services.ActivityService;
 import iss.team6.web.services.TeamService;
 import iss.team6.web.services.UserService;
 
-@SpringBootTest
+//@SpringBootTest
 class AdProjTeam6WebApplicationTests {
 
 	@Autowired
