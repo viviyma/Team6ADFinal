@@ -1,6 +1,4 @@
 # Trashify!
-
-## Overview
 This repository contains the web app, REST endpoints for the android app, and backend of the system. 
 
 ## Features of the Trashify Web App
