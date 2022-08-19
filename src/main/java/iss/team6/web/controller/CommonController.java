@@ -53,42 +53,43 @@ public class CommonController {
 
 	@RequestMapping("/home")
 	public String home(Model model, HttpSession session) {
-		User user = (User) session.getAttribute("profile");
-		model.addAttribute("username", user.getName());
-		return "homeView";
+        if (session.getAttribute("profile")==null) return "loginView";
+        else {
+            User user = (User) session.getAttribute("profile");
+            model.addAttribute("username", user.getName());
+            return "homeView";
+        }
 	}
 	
 	@RequestMapping("/about")
 	public String about(Model model) {
-		//model.addAttribute("name","Home Page");
 		return "about";
 	}
 	
 	@RequestMapping("/locate")
 	public String locatebin(HttpSession session, Model model) {
-		//model.addAttribute("name","Home Page");
-		if (session.getAttribute("profile") != null) {
-		return "mapView";
-		}
-		return "loginView";
+		if (session.getAttribute("profile") != null) return "mapView";
+		else return "loginView";
 	}
 	
     @RequestMapping("/profile")
+    public String profile(Model model, HttpSession session) {
+        if (session.getAttribute("profile")==null) return "loginView";
+        else {
+            User u = (User) session.getAttribute("profile");
+            model.addAttribute("username", u.getName());
+            model.addAttribute("points", uService.getUserStatistics(u).getPoints());
+            model.addAttribute("email", u.getEmail());
+            model.addAttribute("occupation", u.getOccupation());
+            return "userView";
+        }
 
-    public String profile(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult results, Model model,HttpSession session) {
-        User u = (User) session.getAttribute("profile");
-
-        model.addAttribute("username", u.getName());
-        model.addAttribute("points", uService.getUserStatistics(u).getPoints());
-        model.addAttribute("email", u.getEmail());
-        model.addAttribute("occupation", u.getOccupation());
-        
-        return "userView";
     }
 	
 	@RequestMapping("/trashify")
-	public String trashify(Model model) {
-		return "trashifyView";
+	public String trashify(Model model, HttpSession session) {
+        if (session.getAttribute("profile")==null) return "loginView";
+		else return "trashifyView";
 	}
 	
 	@PostMapping("/getImage")
@@ -125,31 +126,33 @@ public class CommonController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            
-           
             return "result";
         }
-        return "loginView";
+        else return "loginView";
     }
 	
     @RequestMapping("/rewards")
-	public String rewards(@ModelAttribute("loginDto") @Valid LoginDTO loginDto, BindingResult results, Model model,HttpSession session) {
-		User u = (User) session.getAttribute("profile");
-		
-		model.addAttribute("points", uService.getUserStatistics(u).getPoints());
-		model.addAttribute("glass", uService.getUserStatistics(u).getGlassTypeCount());
-		model.addAttribute("plastic", uService.getUserStatistics(u).getPlasticTypeCount());
-		model.addAttribute("paper", uService.getUserStatistics(u).getPaperTypeCount());
-		model.addAttribute("metal", uService.getUserStatistics(u).getMetalTypeCount());
-			
-		return "rewardsView";
+	public String rewards(Model model,HttpSession session) {
+        if (session.getAttribute("profile")==null) return "loginView";
+		else {
+            User u = (User) session.getAttribute("profile");
+            model.addAttribute("points", uService.getUserStatistics(u).getPoints());
+            model.addAttribute("glass", uService.getUserStatistics(u).getGlassTypeCount());
+            model.addAttribute("plastic", uService.getUserStatistics(u).getPlasticTypeCount());
+            model.addAttribute("paper", uService.getUserStatistics(u).getPaperTypeCount());
+            model.addAttribute("metal", uService.getUserStatistics(u).getMetalTypeCount());
+            return "rewardsView";
+        }
 	}
 	
    @RequestMapping("/news")
-    public String news(Model model) {    
-        Set<NewsDTO> responseDTOS = sService.getNews();
-        model.addAttribute("newsList",responseDTOS);
-        return "newsView";
+    public String news(Model model, HttpSession session) {   
+        if (session.getAttribute("profile")==null) return "loginView";
+        else {
+            Set<NewsDTO> responseDTOS = sService.getNews();
+            model.addAttribute("newsList",responseDTOS);
+            return "newsView";
+        } 
     }
 	
 	@GetMapping(value = "/login") 
