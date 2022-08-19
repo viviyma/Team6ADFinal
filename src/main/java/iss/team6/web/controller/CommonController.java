@@ -53,7 +53,7 @@ public class CommonController {
 
 	@RequestMapping("/home")
 	public String home(Model model, HttpSession session) {
-        if (session.getAttribute("profile")==null) return "loginView";
+        if (session.getAttribute("profile")==null) return "redirect:/login";
         else {
             User user = (User) session.getAttribute("profile");
             model.addAttribute("username", user.getName());
@@ -69,12 +69,12 @@ public class CommonController {
 	@RequestMapping("/locate")
 	public String locatebin(HttpSession session, Model model) {
 		if (session.getAttribute("profile") != null) return "mapView";
-		else return "loginView";
+		else return "redirect:/login";
 	}
 	
     @RequestMapping("/profile")
     public String profile(Model model, HttpSession session) {
-        if (session.getAttribute("profile")==null) return "loginView";
+        if (session.getAttribute("profile")==null) return "redirect:/login";
         else {
             User u = (User) session.getAttribute("profile");
             model.addAttribute("username", u.getName());
@@ -88,7 +88,7 @@ public class CommonController {
 	
 	@RequestMapping("/trashify")
 	public String trashify(Model model, HttpSession session) {
-        if (session.getAttribute("profile")==null) return "loginView";
+        if (session.getAttribute("profile")==null) return "redirect:/login";
 		else return "trashifyView";
 	}
 	
@@ -122,18 +122,17 @@ public class CommonController {
                     aService.createActivity(activity);
                     System.out.println(fileType+" penis is long"); //For debugging
                 }
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
             return "result";
         }
-        else return "loginView";
+        else return "redirect:/login";
     }
 	
     @RequestMapping("/rewards")
 	public String rewards(Model model,HttpSession session) {
-        if (session.getAttribute("profile")==null) return "loginView";
+        if (session.getAttribute("profile")==null) return "redirect:/login";
 		else {
             User u = (User) session.getAttribute("profile");
             model.addAttribute("points", uService.getUserStatistics(u).getPoints());
@@ -147,7 +146,7 @@ public class CommonController {
 	
    @RequestMapping("/news")
     public String news(Model model, HttpSession session) {   
-        if (session.getAttribute("profile")==null) return "loginView";
+        if (session.getAttribute("profile")==null) return "redirect:/login";
         else {
             Set<NewsDTO> responseDTOS = sService.getNews();
             model.addAttribute("newsList",responseDTOS);
