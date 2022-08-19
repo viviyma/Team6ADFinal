@@ -14,9 +14,13 @@ This repository contains the web app, REST endpoints for the android app, and ba
 The web app is a Spring MVC project with baked-in Machine-Learning support that is deployed as a docker container in the cloud. It connects to a seperate mySQL container in the same cloud environment for database support. The seperation provides database integrity in case the web app container goes down. The REST endpoints provided within the web app are also opened for the android app to connect to so userdata is consistent between the android app and web app. Dockerfile and docker-compose file for the webapp are also provided. 
 
 ## Future Plans
-1. HTTPS support
-2. Spring Security Autentication
-3. JWT Token support for REST endpoint security
-4. Better seperation between Machine Learning Model by deploying a seperate Flask API in the same cloud environment for increased system flexibility
-5. Incorporation of REACTJs or similar frameworks to create a proper front-end to seperate the web backend and frontend completely
+### App Features
+1. Improved gamification system involving teams and incorporation of leaderboards 
+2. Incorporating promotions and rewards from partnered companies
 
+### System Improvements
+1. HTTPS support
+2. Spring Security Authentication
+3. JWT support for proper REST endpoint security
+4. Better seperation between the Machine Learning model by deploying a seperate Flask API as a docker container in the same cloud environment for increased system flexibility
+5. Incorporation of REACTjs or similar framework to create a proper front-end to seperate the web backend and frontend completely and create a more reactive user experience
