@@ -65,9 +65,12 @@ public class CommonController {
 	}
 	
 	@RequestMapping("/locate")
-	public String locatebin(Model model) {
+	public String locatebin(HttpSession session, Model model) {
 		//model.addAttribute("name","Home Page");
+		if (session.getAttribute("profile") != null) {
 		return "mapView";
+		}
+		return "loginView";
 	}
 	
     @RequestMapping("/profile")

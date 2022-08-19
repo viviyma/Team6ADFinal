@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/layout2.html :: html_head"/>
-<body>
+<body style="background-image: url('/assets/img/logo.png');">
 
 	<div th:replace="fragments/layout2.html :: menu"/>
 	<div th:replace="fragments/layout2.html :: header"/>
 	
-	<h1>Recycle and save the earth</h1>
-	    <p style="background-image: url('/assets/img/recyclebins.jpg');">
+	    <p>
 		<form action ="#" th:action="@{/default}" method="post">
 		<table class="framed">
 			
-			<tr>
-				<td colspan="4">&nbsp;</td>
-			</tr>
-			<tr>
+			<!--<tr>
 				<td>&nbsp;</td>
-				<td>
+			<td>
 					<button class="button button1"><a style="text-decoration: none; color :rgb(255, 255, 255)" href="/login">Welcome Back! Log In as a recycler</a></button>
 					
 				</td>
 				
-			</tr>
-			<tr>
+			</tr>-->
+			<!--<tr>
 				<td>&nbsp;</td>
 				
 				<td>
 					<button class="button button2"><a style="text-decoration: none; color :rgb(255, 255, 255)" href="/create">Join to Recycling clan</a></button>
 					
 				</td>
-			</tr>
+			</tr>-->
 		</table>
 	</form>
 	    </p>
