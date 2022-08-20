@@ -6,7 +6,8 @@ This repository contains the web app, REST endpoints for the android app, and ba
 2. Uploading of images to classify trash with built-in Machine Learning support
 3. Find the nearest recycling bin
 4. Track your weekly recycling statistics 
-5. In-sync, and cross-compatible with accompanying mobile app
+5. Keep updated with the latest environmental news
+6. In-sync, and cross-compatible with accompanying mobile app
 
 ## Technical Details
 The web app is a Spring MVC project with baked-in Machine-Learning support that is deployed as a docker container in the cloud. It connects to a seperate mySQL container in the same cloud environment for database support. The seperation provides database integrity in case the web app container goes down. The REST endpoints provided within the web app are also opened for the android app to connect to so userdata is consistent between the android app and web app. Dockerfile and docker-compose file for the webapp are also provided. 
