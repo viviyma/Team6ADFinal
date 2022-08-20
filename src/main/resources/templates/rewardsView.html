@@ -30,7 +30,7 @@
                         <span th:utext="${glass}"/>/100 Items of Glass Recycle</p>
 					   
 						<button type = "button" >
-						<a th:if="${glass}==100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-25-off-mushroom-swiss-omlette-platter-turkey-bacon-croissanwich-with-egg-fish-croissanwich-iced-milo-s-2-brewed-coffees/">Redeem vouchers (Glass)</a>
+						<a th:if="${glass}>=100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-25-off-mushroom-swiss-omlette-platter-turkey-bacon-croissanwich-with-egg-fish-croissanwich-iced-milo-s-2-brewed-coffees/">Redeem vouchers (Glass)</a>
 						<a th:if="${glass}<100" style="text-decoration: none; color :rgb(255, 255, 255)" href="#">Cannot Redeem vouchers (Glass)</a>
 						
 						</button>
@@ -39,7 +39,7 @@
                         <span th:utext="${plastic}"/>/100 Items of Plastic Recycle</p>
 						
 						<button type = "button" >
-						<a th:if="${plastic}==100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-30-off-turkey-bacon-croissanwich-with-egg-turkey-ham-cheese-omlette-platter-iced-milo-s-brewed-coffee/">Redeem vouchers (Plastic)</a>
+						<a th:if="${plastic}>=100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-30-off-turkey-bacon-croissanwich-with-egg-turkey-ham-cheese-omlette-platter-iced-milo-s-brewed-coffee/">Redeem vouchers (Plastic)</a>
                         <a th:if="${plastic}<100" style="text-decoration: none; color :rgb(255, 255, 255)" href="#">Cannot Redeem vouchers (Plastic)</a>
                         
 						</button>
@@ -50,7 +50,7 @@
                         <span th:utext="${paper}"/>/100 Items of Paper Recycle</p>
 						
 						<button type = "button" >
-						<a th:if="${paper}==100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-23-off-chicken-sausage-turkey-ham-turkey-bacon-croissanwich/">Redeem vouchers (Paper)</a>
+						<a th:if="${paper}>=100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-23-off-chicken-sausage-turkey-ham-turkey-bacon-croissanwich/">Redeem vouchers (Paper)</a>
                         <a th:if="${paper}<100" style="text-decoration: none; color :rgb(255, 255, 255)" href="#">Cannot Redeem vouchers (Paper)</a>
 						</button>
                         </div>
@@ -60,7 +60,7 @@
                         <span th:utext="${metal}"/>/100 Items of Metal Recycle</p>
 						
 						<button type = "button" >
-						<a th:if="${metal}==100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-29-off-chicken-croissanwich-with-iced-milos/">Redeem vouchers (Metal)</a>
+						<a th:if="${metal}>=100" style="text-decoration: none; color :rgb(255, 255, 255)" href="https://www.bkcoupons.sg/coupon-deal-29-off-chicken-croissanwich-with-iced-milos/">Redeem vouchers (Metal)</a>
                         <a th:if="${metal}<100" style="text-decoration: none; color :rgb(255, 255, 255)" href="#">Cannot Redeem vouchers (Metal)</a>
 						</button>
                         </div>
