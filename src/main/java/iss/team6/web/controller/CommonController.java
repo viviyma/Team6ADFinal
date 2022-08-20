@@ -116,7 +116,7 @@ public class CommonController {
                 if (fileType!=null) {
                     System.out.println(fileType); //For debugging
                     model.addAttribute("result",fileType);
-                    Activity activity = new Activity("Added new "+fileType+" picture", 20, 
+                    Activity activity = new Activity("Added new "+fileType+" picture", 2, 
                                                         internalConvert(fileType),
                                                         (User) session.getAttribute("profile"));
                     aService.createActivity(activity);
