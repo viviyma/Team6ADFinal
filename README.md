@@ -23,3 +23,6 @@ The web app is a Spring MVC project with baked-in Machine-Learning support that 
 3. JWT support for proper REST endpoint security
 4. Better seperation between the Machine Learning model by deploying a seperate Flask API as a docker container in the same cloud environment for increased system flexibility
 5. Incorporation of REACTjs or similar framework to create a proper front-end to seperate the web backend and frontend completely and create a more reactive user experience
+
+## How to run the app
+`Git clone` the repo into your system and change the **system.properties** file to your desired database configuration in your favourite IDE. Some of the views are also set to call the REST endpoints so do change those to localhost as well, if required. Run the app as a Spring Boot App and you will be able to access the webapp on the browser by typing `localhost:8080` in the browser.
